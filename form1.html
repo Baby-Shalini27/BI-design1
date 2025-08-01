@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🍽️ Feedback Form - Savor Bliss</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Poppins', sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
+                  url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: bgFade 3s ease-in-out;
+      backdrop-filter: blur(4px);
+    }
+
+    @keyframes bgFade {
+      from { filter: brightness(0.7); }
+      to { filter: brightness(1); }
+    }
+
+    .form-box {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 720px;
+      width: 90%;
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      backdrop-filter: blur(12px);
+      animation: slideUp 1.2s ease-out forwards;
+      transform: translateY(40px);
+      opacity: 0;
+    }
+
+    @keyframes slideUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffe8e8;
+      margin-bottom: 10px;
+      font-size: 2rem;
+      animation: fadeIn 1s ease-in 0.5s forwards;
+      opacity: 0;
+    }
+
+    .sub-text {
+      text-align: center;
+      color: #f1cfcf;
+      margin-bottom: 25px;
+      font-style: italic;
+      font-size: 1rem;
+      animation: fadeIn 1s ease-in 0.8s forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+      color: #fdfdfd;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    select {
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 18px 18px;
+      padding-right: 40px;
+    }
+
+    option {
+      background-color: #333;
+      color: #fff;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #ddd;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: #ffc0cb;
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.02);
+      box-shadow: 0 0 10px rgba(255, 192, 203, 0.4);
+    }
+
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 15px;
+    }
+
+    .radio-group label {
+      font-weight: normal;
+      color: #f9f9f9;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 10px 16px;
+      border-radius: 10px;
+      transition: background-color 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+
+    .radio-group input {
+      margin-right: 6px;
+    }
+
+    .radio-group label:hover {
+      background-color: rgba(255, 182, 193, 0.2);
+      transform: scale(1.05);
+    }
+
+    .submit-btn {
+      background-color: #ff4f5a;
+      color: #fff;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 25px;
+      transition: background 0.4s ease, transform 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #e63e49;
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .offer-note {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #f4dada;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>🍴 Spice Route</h2>
+    <div class="sub-text">✨ Share your experience & get <strong>10% OFF</strong> next time! 🎁</div>
+    <form>
+      <label for="name">👤 Name:</label>
+      <input type="text" id="name" name="name" required placeholder="e.g. Priya Sharma"/>
+
+      <label for="email">📧 Email (for your discount code):</label>
+      <input type="email" id="email" name="email" placeholder="e.g. priya@email.com"/>
+
+      <label>🌟 How did you find the taste?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="taste" value="Excellent" required> 😋 Excellent</label>
+        <label><input type="radio" name="taste" value="Good"> 🙂 Good</label>
+        <label><input type="radio" name="taste" value="Average"> 😐 Average</label>
+        <label><input type="radio" name="taste" value="Poor"> 🙁 Poor</label>
+      </div>
+
+      <label>🍛 Quantity of food:</label>
+      <select required>
+        <option value="">Choose one</option>
+        <option>Satisfying</option>
+        <option>Could be more</option>
+        <option>Too much!</option>
+      </select>
+
+      <label>🧼 Cleanliness:</label>
+      <select required>
+        <option value="">Choose one</option>
+        <option>Very clean</option>
+        <option>Clean</option>
+        <option>Needs attention</option>
+      </select>
+
+      <label>👨‍🍳 Staff Hospitality:</label>
+      <select required>
+        <option value="">Choose one</option>
+        <option>Very welcoming</option>
+        <option>Polite</option>
+        <option>Needs training</option>
+      </select>
+
+      <label>⏱️ Service Speed:</label>
+      <select required>
+        <option value="">Choose one</option>
+        <option>Very fast</option>
+        <option>Reasonable</option>
+        <option>Too slow</option>
+      </select>
+
+      <label>💰 Value for money:</label>
+      <div class="radio-group">
+        <label><input type="radio" name="value" value="Excellent" required> 💸 Excellent</label>
+        <label><input type="radio" name="value" value="Good"> Good</label>
+        <label><input type="radio" name="value" value="Fair"> Fair</label>
+        <label><input type="radio" name="value" value="Poor"> Poor</label>
+      </div>
+
+      <label for="favorite">❤️ Favorite Dish:</label>
+      <input type="text" id="favorite" placeholder="e.g. Masala Dosa, Chicken Kebab"/>
+
+      <label for="comments">💬 Any Suggestions / Comments?</label>
+      <textarea id="comments" rows="4" placeholder="Your honest opinion helps us grow!"></textarea>
+
+      <button class="submit-btn" type="submit">🚀 Submit Feedback</button>
+    </form>
+    <div class="offer-note">🎉 You’ll receive your discount code via email within 24 hours!</div>
+  </div>
+</body>
+</html>
